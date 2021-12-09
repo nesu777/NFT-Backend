@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const connectionStr = process.env.MONGODBURI
+const connectionStr = process.env.MONGODBURI || 'mongodb://localhost:27017/nftdb'
 
 mongoose.connect(connectionStr, {
   useNewUrlParser: true,
