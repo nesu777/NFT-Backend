@@ -1,5 +1,6 @@
 //external modules
 const express = require('express')
+//
 const cors = require('cors')
 const session = require('express-session')
 //internal modules
@@ -20,7 +21,7 @@ require('dotenv').config()
 
 //use json
 app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+// app.use(express.urlencoded({extended:true}))
 
 //cors
 const whiteList = ['http://localhost:3000', 'https://nft-market-app.herokuapp.com']
@@ -52,7 +53,7 @@ app.use(session({
 }))
 
 app.get('/', ( req, res )=>{
-  res.send('Hello World!');
+  res.send('Backend Connected');
 })
 
 // Routes

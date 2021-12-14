@@ -5,10 +5,7 @@ const index = (req,res) =>{
     db.Asset.find({}, (error, assets) =>{
         if (error) return res.status(400).json({error: error.message})
 
-        return res.status(200).json({
-            assets,
-            requestedAt: new Data().toLocaleString()
-        })
+        return res.status(200).json(assets)
     })
 }
 

@@ -2,8 +2,9 @@ const mongoose = require('mongoose')
 
 const assetSchema = new mongoose.Schema({
   name: {type: String},
-  author: {type: String},
-  price: {type: Number}
+  creator: {type: String},
+  price: {type: Number},
+  likes: {type: Number, default:0}
 })
 
 const Asset = mongoose.model('Asset', assetSchema)
