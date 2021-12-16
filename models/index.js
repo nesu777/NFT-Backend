@@ -1,3 +1,4 @@
 module.exports = {
-  Asset: require('./Asset')
+  Asset: require('./Asset'),
+  User: require('./User'),
 }

@@ -1,3 +1,4 @@
 module.exports = {
-  assets: require('./assets.ctrls')
+  assets: require('./assets.ctrls'),
+  users: require('./users.ctrls'),
 }

@@ -1,3 +1,4 @@
 module.exports = {
-  assets: require('./assets.routes')
+  assets: require('./assets.routes'),
+  users: require('./users.routes'),
 }

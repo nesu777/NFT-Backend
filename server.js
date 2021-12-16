@@ -6,7 +6,6 @@ const session = require('express-session')
 //internal modules
 const routes = require('./routes')
 
-//port !!CHANGE LATER!!
 const PORT = process.env.PORT || 3003
 
 //express instance
@@ -21,7 +20,7 @@ require('dotenv').config()
 
 //use json
 app.use(express.json())
-// app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true}))
 
 //cors
 const whiteList = ['http://localhost:3000', 'https://nft-market-app.herokuapp.com']
@@ -32,7 +31,9 @@ const corsOptions = {
     }else {
       callback (new Error('Not allowed by CORS'))
     }
-  }
+  },
+
+  credentials:true
 }
 app.use(cors(corsOptions))
 
@@ -58,6 +59,7 @@ app.get('/', ( req, res )=>{
 
 // Routes
 app.use('/assets', routes.assets)
+app.use('/users', routes.users)
 
 app.listen(PORT, ()=> {
   console.log('app is listening on port ' + PORT)
