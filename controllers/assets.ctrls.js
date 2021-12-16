@@ -10,7 +10,7 @@ const index = (req,res) =>{
 }
 
 const create = (req,res) =>{
-    db.Assets.create(req.body, (error, createdAsset) =>{
+    db.Asset.create(req.body, (error, createdAsset) =>{
         if (error) return res.status(400).json({error: error.message})
         return res.status(200).json(createdAsset)
     })
