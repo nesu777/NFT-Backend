@@ -5,7 +5,7 @@ const assetSchema = new mongoose.Schema({
   creator: {type: String},
   price: {type: Number},
   likes: {type: Number, default:0},
-  image: {type: String}
+  img: {type: String}
 })
 
 const Asset = mongoose.model('Asset', assetSchema)
