@@ -1,10 +1,9 @@
-//external modules
+//modules and cors
 const express = require('express')
-//
+const routes = require('./routes')
 const cors = require('cors')
 const session = require('express-session')
-//internal modules
-const routes = require('./routes')
+
 
 const PORT = process.env.PORT || 3003
 
@@ -53,12 +52,20 @@ app.use(session({
   }
 }))
 
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+        return next()
+    } else {
+        res.status(403).json({msg:"login required"})
+    }
+}
+
 app.get('/', ( req, res )=>{
   res.send('Backend Connected');
 })
 
 // Routes
-app.use('/assets', routes.assets)
+app.use('/assets', isAuthenticated, routes.assets)
 app.use('/users', routes.users)
 
 app.listen(PORT, ()=> {
