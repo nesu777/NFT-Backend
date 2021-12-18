@@ -52,20 +52,20 @@ app.use(session({
   }
 }))
 
-const isAuthenticated = (req, res, next) => {
-    if (req.session.currentUser) {
-        return next()
-    } else {
-        res.status(403).json({msg:"login required"})
-    }
-}
+// const isAuthenticated = (req, res, next) => {
+//     if (req.session.currentUser) {
+//         return next()
+//     } else {
+//         res.status(403).json({msg:"login required"})
+//     }
+// }
 
 app.get('/', ( req, res )=>{
   res.send('Backend Connected');
 })
 
 // Routes
-app.use('/assets', isAuthenticated, routes.assets)
+app.use('/assets', routes.assets)
 app.use('/users', routes.users)
 
 app.listen(PORT, ()=> {
